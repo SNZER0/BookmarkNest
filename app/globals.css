@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --text: rgb(245, 215, 225);
+    --background: rgb(26, 7, 14);
+    --primary: rgb(228, 147, 178);
+    --secondary: rgb(94, 140, 35);
+    --accent: rgb(90, 213, 89);
+    
+    --foreground: var(--text);
+    --card: rgba(26, 7, 14, 0.8);
+    --card-foreground: var(--text);
+    --popover: var(--background);
+    --popover-foreground: var(--text);
+    --primary-foreground: var(--background);
+    --secondary-foreground: var(--background);
+    --muted: rgba(228, 147, 178, 0.1);
+    --muted-foreground: rgba(245, 215, 225, 0.7);
+    --accent-foreground: var(--background);
+    --destructive: rgb(220, 38, 127);
+    --destructive-foreground: var(--text);
+    --border: rgba(228, 147, 178, 0.2);
+    --input: rgba(228, 147, 178, 0.1);
+    --ring: var(--accent);
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Custom scrollbar for dark mode */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(228, 147, 178, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(228, 147, 178, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(228, 147, 178, 0.5);
+}
+
+/* Light mode scrollbar */
+.light-mode::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.light-mode::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.light-mode::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Smooth animations */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
